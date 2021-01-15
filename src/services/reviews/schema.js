@@ -3,12 +3,12 @@ const mongoose = require("mongoose")
 
 const ReviewsSchema = new Schema(
     {
-        text: {
+        comment: {
             type: String,
             required: true,
           },
-        user: {
-            type: String, 
+        rate: {
+            type: Number, 
             required: true
         }
     }

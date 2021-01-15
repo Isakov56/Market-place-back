@@ -108,8 +108,11 @@ ProductsRouter.post("/:id/reviews/", async (req, res, next) => {
     const reviewId = req.body.reviewId
     const thatReview = await ReviewsSchema.findById(reviewId, { _id: 0 })
     const thatProduct = await ProductsSchema.findById(req.params.id)
+    console.log(thatReview)
+    console.log(thatProduct)
     if(thatReview && thatProduct){
       const reviewToInsert = { ...thatReview.toObject(), date: new Date() }
+      console.log(reviewToInsert)
   
       const updated = await ProductsSchema.findByIdAndUpdate(
         req.params.id,
